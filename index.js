@@ -8,8 +8,18 @@ const authProfile = require("./Routes/authProfiles");
 require("dotenv").config();
 require("./db.connect");
 
+
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(bodyParser.json())
+// app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  methods: 'GET,POST,PUT,DELETE', 
+  credentials: true, 
+}));
+
 
 app.use("/auth", authRouter);
 app.use("/auth", authProfile);
