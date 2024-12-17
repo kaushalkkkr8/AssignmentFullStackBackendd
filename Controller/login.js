@@ -24,7 +24,7 @@ const logIn = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
-    res.json({user})
+  
     if (!user) {
       return res.status(409).json({ message: "Email or Passward is incorrect", success: false });
     }
